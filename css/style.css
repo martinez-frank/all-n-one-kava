@@ -28,11 +28,11 @@ body{
   text-align: center;
   padding-top: 10px;
 }
-
-/* Logo sizing: bigger + predictable */
+/* Logo sizing: bigger + visually “cropped” */
 .logo-wrap{
-  width: clamp(240px, 26vw, 340px);   /* <-- bigger hero presence */
+  width: clamp(320px, 34vw, 520px);   /* BIGGER on desktop */
   margin: 0 auto 22px;
+  overflow: hidden;                   /* hides whitespace edges */
 }
 
 .logo{
@@ -40,14 +40,20 @@ body{
   height: auto;
   display: block;
   image-rendering: -webkit-optimize-contrast;
+
+  /* tighten + enlarge the mark (because the PNG has padding) */
+  transform: scale(1.28);
+  transform-origin: center;
 }
 
 @media (max-width: 768px){
-  .logo-wrap{ width: 200px; margin-bottom: 18px; }
+  .logo-wrap{ width: 240px; margin-bottom: 18px; }
+  .logo{ transform: scale(1.22); }
 }
 
 @media (max-width: 480px){
-  .logo-wrap{ width: 170px; margin-bottom: 16px; }
+  .logo-wrap{ width: 200px; margin-bottom: 16px; }
+  .logo{ transform: scale(1.18); }
 }
 
 .subhead{
