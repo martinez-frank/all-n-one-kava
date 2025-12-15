@@ -20,19 +20,21 @@ body{
 .container{
   max-width: 1120px;
   margin: 0 auto;
-  padding: 72px 24px 48px;
+  padding: 56px 24px 44px; /* tighter to pull content up */
 }
 
 /* HERO */
 .hero{
   text-align: center;
-  padding-top: 10px;
+  padding-top: 0;
+  margin-bottom: 18px; /* tighter so card starts sooner */
 }
-/* Logo sizing: bigger + visually “cropped” */
+
+/* LOGO: wrapper controls hero-visual scale */
 .logo-wrap{
-  width: clamp(320px, 34vw, 520px);   /* BIGGER on desktop */
-  margin: 0 auto 22px;
-  overflow: hidden;                   /* hides whitespace edges */
+  width: clamp(320px, 34vw, 520px); /* big hero logo */
+  margin: 0 auto 10px;              /* tighter gap under logo */
+  overflow: hidden;
 }
 
 .logo{
@@ -40,32 +42,19 @@ body{
   height: auto;
   display: block;
   image-rendering: -webkit-optimize-contrast;
-
-  /* tighten + enlarge the mark (because the PNG has padding) */
-  transform: scale(1.28);
-  transform-origin: center;
-}
-
-@media (max-width: 768px){
-  .logo-wrap{ width: 240px; margin-bottom: 18px; }
-  .logo{ transform: scale(1.22); }
-}
-
-@media (max-width: 480px){
-  .logo-wrap{ width: 200px; margin-bottom: 16px; }
-  .logo{ transform: scale(1.18); }
 }
 
 .subhead{
   font-family: "Playfair Display", serif;
-  font-size: 1.35rem;
-  margin-bottom: 8px;
+  font-size: 1.65rem; /* larger */
+  margin-bottom: 6px; /* tighter */
 }
 
 .tagline{
   color: var(--muted);
-  font-size: 1rem;
-  margin-bottom: 22px;
+  font-size: 1.15rem; /* larger */
+  line-height: 1.45;
+  margin-bottom: 14px; /* tighter */
 }
 
 .buttons{
@@ -73,7 +62,7 @@ body{
   gap: 14px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 44px;
+  margin-bottom: 22px; /* tighter */
 }
 
 /* PILLS / BUTTONS */
@@ -101,15 +90,9 @@ body{
   box-shadow: 0 10px 22px rgba(139, 75, 47, .22);
 }
 
-.pill.pill-wide{
-  padding: 12px 20px;
-  min-width: 270px;
-  margin: 8px 0 18px;
-}
-
 /* FEATURE CARD */
 .feature{
-  margin-top: 18px;
+  margin-top: 10px;                 /* tighter */
   background: rgba(255,255,255,.18);
   border-radius: 22px;
   padding: 26px;
@@ -163,7 +146,7 @@ body{
 /* FOOTER */
 .footer{
   text-align: center;
-  margin-top: 42px;
+  margin-top: 34px; /* slightly tighter */
   color: rgba(43, 29, 20, 0.70);
   font-family: "Playfair Display", serif;
   font-size: 1.05rem;
@@ -181,9 +164,17 @@ body{
     margin-left: auto;
     margin-right: auto;
   }
+}
 
-  .pill.pill-wide{
-    margin-left: auto;
-    margin-right: auto;
-  }
+@media (max-width: 768px){
+  .container{ padding: 44px 18px 40px; }
+  .logo-wrap{ width: min(420px, 78vw); margin-bottom: 10px; }
+  .subhead{ font-size: 1.5rem; }
+  .tagline{ font-size: 1.05rem; margin-bottom: 12px; }
+}
+
+@media (max-width: 480px){
+  .logo-wrap{ width: min(360px, 82vw); }
+  .subhead{ font-size: 1.35rem; }
+  .tagline{ font-size: 1rem; }
 }
