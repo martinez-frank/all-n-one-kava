@@ -29,35 +29,25 @@ body{
   padding-top: 10px;
 }
 
-.logo {
-  width: clamp(160px, 18vw, 220px); /* hero-appropriate size */
+/* Logo sizing: bigger + predictable */
+.logo-wrap{
+  width: clamp(240px, 26vw, 340px);   /* <-- bigger hero presence */
+  margin: 0 auto 22px;
+}
+
+.logo{
+  width: 100%;
   height: auto;
   display: block;
-  margin: 0 auto 28px;
   image-rendering: -webkit-optimize-contrast;
 }
 
-@media (max-width: 768px) {
-  .logo {
-    width: 140px;
-    margin-bottom: 22px;
-  }
+@media (max-width: 768px){
+  .logo-wrap{ width: 200px; margin-bottom: 18px; }
 }
 
-@media (max-width: 480px) {
-  .logo {
-    width: 120px;
-    margin-bottom: 18px;
-  }
-}
-
-.hero-title{
-  font-family: "Playfair Display", serif;
-  font-weight: 700;
-  letter-spacing: .4px;
-  font-size: clamp(2.4rem, 4.2vw, 3.4rem);
-  line-height: 1.05;
-  margin-bottom: 14px;
+@media (max-width: 480px){
+  .logo-wrap{ width: 170px; margin-bottom: 16px; }
 }
 
 .subhead{
