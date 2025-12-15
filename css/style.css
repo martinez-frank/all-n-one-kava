@@ -160,3 +160,9 @@ footer {
     max-width: 60ch;
   }
 }
+.hero-logo {
+  width: 220px;
+  max-width: 70%;
+  margin: 0 auto 32px;
+  display: block;
+}
