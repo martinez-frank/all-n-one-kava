@@ -30,28 +30,24 @@ body{
 }
 
 .logo {
-  width: 120px;          /* primary desktop size */
-  max-width: 40%;
+  width: clamp(160px, 18vw, 220px); /* hero-appropriate size */
   height: auto;
   display: block;
-  margin: 0 auto 22px;
-}
-
-.logo {
+  margin: 0 auto 28px;
   image-rendering: -webkit-optimize-contrast;
 }
 
 @media (max-width: 768px) {
   .logo {
-    width: 96px;
-    margin-bottom: 18px;
+    width: 140px;
+    margin-bottom: 22px;
   }
 }
 
 @media (max-width: 480px) {
   .logo {
-    width: 82px;
-    margin-bottom: 16px;
+    width: 120px;
+    margin-bottom: 18px;
   }
 }
 
