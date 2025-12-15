@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f6efe5;
+  color: #2b1d14;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 24px 40px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.subhead {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.tagline {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: 32px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.pill {
+  border: 1px solid #2b1d14;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+.pill.primary {
+  background: #9c4b2c;
+  color: #fff;
+  border-color: #9c4b2c;
+}
+
+.image-block {
+  display: flex;
+  justify-content: center;
+  margin: 80px 0;
+}
+
+.image-block img {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+}
+
+footer {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin-top: 80px;
+}
