@@ -29,11 +29,30 @@ body{
   padding-top: 10px;
 }
 
-.logo{
-  width: 140px;
+.logo {
+  width: 120px;          /* primary desktop size */
+  max-width: 40%;
   height: auto;
   display: block;
   margin: 0 auto 22px;
+}
+
+.logo {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 96px;
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 82px;
+    margin-bottom: 16px;
+  }
 }
 
 .hero-title{
