@@ -20,44 +20,44 @@ body{
 .container{
   max-width: 1120px;
   margin: 0 auto;
-  padding: 34px 24px 30px; /* tighter overall */
+  padding: 30px 24px 30px;
 }
 
 /* =========================
-   HERO
+   HERO (LOCKED STACK)
 ========================= */
 
 .hero{
   text-align: center;
-  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* LOGO */
 .logo-wrap{
-  width: clamp(520px, 56vw, 760px);
-  margin: 0 auto 6px; /* tight, neutral */
+  width: clamp(560px, 58vw, 820px);
+  margin: 0 auto 8px;
+  line-height: 0; /* removes any inline-image baseline spacing */
 }
 
 .logo{
   width: 100%;
   height: auto;
   display: block;
-  margin: 0 auto;
-  image-rendering: -webkit-optimize-contrast;
 }
 
-/* HEADLINE */
+/* HEADLINE + TAGLINE (NO OVERLAP) */
 .subhead{
   font-family: "Playfair Display", serif;
-  font-size: 1.7rem;
-  margin-top: 6px;     /* RESET — no negatives */
+  font-size: 1.75rem;
+  margin-top: 6px;
   margin-bottom: 2px;
 }
 
-/* TAGLINE */
 .tagline{
   color: var(--muted);
-  font-size: 1.18rem;  /* ⬅️ larger, intentional */
+  font-size: 1.2rem;      /* bigger */
   margin-top: 0;
   margin-bottom: 14px;
 }
@@ -68,10 +68,10 @@ body{
   gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
-/* PILLS / BUTTONS */
+/* PILLS */
 .pill{
   display: inline-flex;
   align-items: center;
@@ -96,9 +96,15 @@ body{
   box-shadow: 0 10px 22px rgba(139, 75, 47, .22);
 }
 
-/* FEATURE CARD */
+/* =========================
+   FEATURE CARD
+========================= */
+
 .feature{
-  margin-top: 4px; /* was 6+ */
+  margin-top: 6px;
+  background: rgba(255,255,255,.18);
+  border-radius: 22px;
+  padding: 20px;
 }
 
 .feature-inner{
@@ -141,7 +147,7 @@ body{
 
 .closing{
   font-family: "Playfair Display", serif;
-  font-size: clamp(1.85rem, 2.4vw, 2.35rem); /* ⬅️ bigger */
+  font-size: clamp(1.95rem, 2.55vw, 2.45rem); /* bigger */
   line-height: 1.2;
   margin-top: 10px;
 }
@@ -152,10 +158,13 @@ body{
   margin-top: 18px;
   color: rgba(43, 29, 20, 0.70);
   font-family: "Playfair Display", serif;
-  font-size: 1.05rem;
+  font-size: 1.15rem; /* a bit larger */
 }
 
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media (max-width: 900px){
   .feature-inner{
     grid-template-columns: 1fr;
@@ -170,17 +179,15 @@ body{
 }
 
 @media (max-width: 768px){
-  .container{ padding: 28px 18px 28px; }
-  .logo-wrap{ width: min(640px, 86vw); margin-bottom: 6px; }
-  .logo{ max-width: 560px; }
-  .subhead{ font-size: 1.5rem; }
-  .tagline{ font-size: 1.02rem; margin-bottom: 10px; }
+  .container{ padding: 26px 18px 26px; }
+  .logo-wrap{ width: min(680px, 92vw); margin-bottom: 8px; }
+  .subhead{ font-size: 1.55rem; }
+  .tagline{ font-size: 1.05rem; margin-bottom: 10px; }
   .buttons{ margin-bottom: 10px; }
 }
 
 @media (max-width: 480px){
-  .logo-wrap{ width: min(520px, 92vw); }
-  .logo{ max-width: 460px; }
+  .logo-wrap{ width: min(520px, 94vw); }
   .subhead{ font-size: 1.35rem; }
-  .tagline{ font-size: .98rem; }
+  .tagline{ font-size: 1rem; }
 }
