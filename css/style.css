@@ -47,15 +47,16 @@ body{
 /* HERO TEXT */
 .subhead{
   font-family: "Playfair Display", serif;
-  font-size: 1.65rem;   /* slightly larger */
-  margin-top: 0;
-  margin-bottom: 2px;   /* almost touching tagline */
+  font-size: 1.65rem;
+  margin-top: -18px;   /* was -10px → pulls tagline closer */
+  margin-bottom: 2px;
 }
 
 .tagline{
   color: var(--muted);
   font-size: 1.08rem;
-  margin-bottom: 12px;  /* tighter before buttons */
+  margin-top: 0;
+  margin-bottom: 10px; /* slightly tighter */
 }
 
 .buttons{
