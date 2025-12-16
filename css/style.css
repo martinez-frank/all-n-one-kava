@@ -26,8 +26,7 @@ body{
 /* HERO */
 .hero{
   text-align: center;
-  padding-top: 0;
-  margin-bottom: 18px; /* tighter so card starts sooner */
+  padding-top: 4px;
 }
 
 /* LOGO: wrapper controls hero-visual scale */
@@ -37,17 +36,19 @@ body{
   overflow: hidden;
 }
 
-.logo{
-  width: 100%;
+.logo {
+  width: clamp(160px, 18vw, 220px);
   height: auto;
   display: block;
+  margin: 0 auto 14px; /* tightened from 28px */
   image-rendering: -webkit-optimize-contrast;
 }
 
 .subhead{
   font-family: "Playfair Display", serif;
-  font-size: 1.65rem; /* larger */
-  margin-bottom: 6px; /* tighter */
+  font-size: 1.45rem;   /* slightly larger as requested */
+  margin-top: -4px;     /* pulls it closer to logo */
+  margin-bottom: 6px;
 }
 
 .tagline{
