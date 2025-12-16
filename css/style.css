@@ -62,42 +62,21 @@ body{
   margin-bottom: 6px;
 }
 
-/* BUTTONS */
-.buttons{
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 14px;
+/* Ensure pills never look like default links */
+.buttons a{
+  text-decoration: none;
+  color: inherit;
 }
 
-/* PILLS */
-/* =========================
-   PILLS / BUTTONS (REFINED)
-========================= */
-
+/* Your refined pill look (keep) + slightly better contrast */
 .pill{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 12px 22px;              /* taller, calmer */
+  padding: 11px 22px;
   border-radius: 999px;
-
-  background: rgba(43, 29, 20, 0.05);
-  border: 1px solid rgba(43, 29, 20, 0.14);
-
-  color: var(--ink);
-  text-decoration: none;
-
+  background: rgba(43,29,20,0.05);
+  border: 1px solid rgba(43,29,20,0.14);
   font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
-
-  transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease,
-    background 0.15s ease;
+  font-size: .95rem;
+  letter-spacing: .02em;
 }
 
 .pill:hover{
