@@ -157,11 +157,10 @@ body{
 
 /* FOOTER */
 .footer{
-  text-align: center;
   margin-top: 18px;
-  color: rgba(43, 29, 20, 0.70);
-  font-family: "Playfair Display", serif;
-  font-size: 1.15rem; /* a bit larger */
+  font-size: 1.1rem;
+  color: rgba(43,29,20,.72);
+  letter-spacing: .01em;
 }
 
 /* =========================
