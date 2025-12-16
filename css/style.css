@@ -32,9 +32,8 @@ body{
 
 /* LOGO: wrapper controls hero-visual scale */
 .logo-wrap{
-  width: clamp(320px, 34vw, 520px); /* big hero logo */
-  margin: 0 auto 10px;              /* tighter gap under logo */
-  overflow: hidden;
+  width: clamp(360px, 38vw, 620px); /* ⬅️ larger hero presence */
+  margin: 0 auto 4px;               /* ⬅️ even tighter to tagline */
 }
 
 .logo{
