@@ -36,9 +36,9 @@ body{
 
 /* LOGO */
 .logo-wrap{
-  width: clamp(560px, 58vw, 820px);
+  width: clamp(520px, 52vw, 720px); /* ⬅️ was larger */
   margin: 0 auto 8px;
-  line-height: 0; /* removes any inline-image baseline spacing */
+  line-height: 0;
 }
 
 .logo{
@@ -50,16 +50,18 @@ body{
 /* HEADLINE + TAGLINE (NO OVERLAP) */
 .subhead{
   font-family: "Playfair Display", serif;
-  font-size: 1.75rem;
+  font-size: 1.9rem;        /* ⬅️ slightly larger */
   margin-top: 6px;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .tagline{
   color: var(--muted);
-  font-size: 1.2rem;      /* bigger */
+  font-size: 1.35rem;       /* ⬅️ noticeable but elegant */
+  font-weight: 500;         /* ⬅️ adds authority */
+  letter-spacing: 0.01em;
   margin-top: 0;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 /* BUTTONS */
