@@ -26,7 +26,8 @@ body{
 /* HERO */
 .hero{
   text-align: center;
-  padding-top: 4px;
+  padding-top: 0;
+  margin-top: -10px; /* pulls logo + text upward as a unit */
 }
 
 /* LOGO: wrapper controls hero-visual scale */
@@ -37,25 +38,25 @@ body{
 }
 
 .logo {
-  width: clamp(160px, 18vw, 220px);
+  width: clamp(180px, 20vw, 260px);
   height: auto;
   display: block;
-  margin: 0 auto 14px; /* tightened from 28px */
+  margin: 0 auto 8px; /* tighter */
   image-rendering: -webkit-optimize-contrast;
 }
 
 .subhead{
   font-family: "Playfair Display", serif;
-  font-size: 1.45rem;   /* slightly larger as requested */
-  margin-top: -4px;     /* pulls it closer to logo */
-  margin-bottom: 6px;
+  font-size: 1.55rem;      /* larger, more intentional */
+  margin-top: 0;
+  margin-bottom: 2px;      /* almost touching tagline */
 }
 
 .tagline{
   color: var(--muted);
-  font-size: 1.15rem;
-  line-height: 1.4;
-  margin-bottom: 10px; /* tighter */
+  font-size: 1.05rem;
+  margin-top: 0;
+  margin-bottom: 16px;     /* controlled space before buttons */
 }
 .buttons{
   display: flex;
