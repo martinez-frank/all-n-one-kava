@@ -210,7 +210,11 @@ body{
 
 /* Text column breathing room */
 .feature-text{
-  padding-top: 18px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;                 /* fill the grid cell height */
+  padding: 18px 0 18px;         /* balanced top/bottom breathing room */
+  justify-content: space-between;/* spreads: headline+copy (top) / closing (mid) / button (bottom) */
 }
 
 .feature-text h2{
@@ -302,9 +306,12 @@ body{
   }
 
   .feature-text p{
-    font-size: 1.02rem;
-    line-height: 1.9;
-  }
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.85;
+  margin-bottom: 14px;
+  max-width: 52ch;
+}
 
   /* Key fix: keep bold, but not gigantic */
   .closing{
@@ -313,9 +320,11 @@ body{
     margin-top: 14px;
   }
 
-  .feature-actions{
-    margin-top: 22px;
-  }
+ .feature-actions{
+  display: flex;
+  justify-content: center;
+  margin-top: 0;               /* let flex spacing control layout */
+}
 
   .footer{ font-size: 1.05rem; }
 }
