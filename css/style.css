@@ -10,37 +10,32 @@
 }
 
 *{ box-sizing: border-box; margin: 0; padding: 0; }
-
 html, body{ height: 100%; }
 
 body{
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: var(--ink);
 
-  /* Leaf pattern (more visible, still subtle/premium) */
+  /* ✅ Leaf pattern (single leaf silhouette, subtle, matches brand) */
   background-color: var(--bg);
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 240 240'%3E%3Cg fill='none' stroke='%232b1d14' stroke-opacity='0.22' stroke-width='2'%3E%3Cpath d='M160 64c-22 7-36 21-43 43 22-7 36-21 43-43Z' stroke-linejoin='round'/%3E%3Cpath d='M120 104c12 12 25 22 38 30' stroke-linecap='round'/%3E%3Cpath d='M80 176c22-7 36-21 43-43-22 7-36 21-43 43Z' stroke-linejoin='round'/%3E%3Cpath d='M120 136c-12-12-25-22-38-30' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 180px 180px;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg fill='none'%3E%3Cpath d='M145 62c-19 8-31 21-38 40 19-7 32-20 38-40Z' fill='%232b1d14' fill-opacity='0.075'/%3E%3Cpath d='M108 104c11 10 23 19 36 26' stroke='%232b1d14' stroke-opacity='0.08' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M134 74c-8 11-16 23-19 35' stroke='%232b1d14' stroke-opacity='0.06' stroke-width='2' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 150px 150px;  /* smaller = quieter */
   background-repeat: repeat;
   background-attachment: fixed;
 
-  /* ✅ True vertical centering + breathing room (this fixes “smashed at top”) */
+  /* ✅ True vertical centering + breathing room */
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  /* key: adds top/bottom space while keeping center */
   padding-block: clamp(28px, 7vh, 80px);
 }
 
 .container{
   width: 100%;
   max-width: 1120px;
-
-  /* slightly more top padding for perceived centering */
   padding: 38px 24px 40px;
 }
 
