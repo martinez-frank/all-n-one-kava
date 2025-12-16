@@ -36,9 +36,8 @@ body{
 
 /* LOGO */
 .logo-wrap{
-  width: clamp(520px, 52vw, 720px); /* ⬅️ was larger */
-  margin: 0 auto 8px;
-  line-height: 0;
+  width: clamp(480px, 50vw, 680px);
+  margin: 0 auto 6px;
 }
 
 .logo{
@@ -49,9 +48,10 @@ body{
 
 /* HEADLINE + TAGLINE (NO OVERLAP) */
 .tagline{
-  font-size: 1.22rem;      /* up slightly */
-  font-weight: 500;
-  margin-bottom: 14px;
+  color: rgba(43, 29, 20, 0.68);
+  font-size: 1.26rem;
+  line-height: 1.45;
+  margin-bottom: 16px;
 }
 
 .subhead{
