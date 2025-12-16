@@ -1,62 +1,181 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>All N One Kava Lounge — Coming Soon</title>
+:root{
+  --bg: #f6efe5;
+  --card: #f7f1e9;
+  --ink: #2b1d14;
+  --muted: rgba(43, 29, 20, 0.72);
+  --line: rgba(43, 29, 20, 0.18);
+  --pill: rgba(43, 29, 20, 0.06);
+  --accent: #8b4b2f;
+  --shadow: 0 14px 45px rgba(0,0,0,.08);
+}
 
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
+*{ box-sizing: border-box; margin: 0; padding: 0; }
 
-<body>
-  <main class="container">
+body{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
 
-    <!-- HERO -->
-    <header class="hero">
-      <div class="logo-wrap" aria-label="All N One Kava Lounge logo">
-        <img class="logo" src="assets/all_in_one_logo.png" alt="All N One Kava Lounge logo" />
-      </div>
+.container{
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 40px 24px 32px; /* tighter */
+}
 
-      <p class="subhead">A place to slow down.</p>
-      <p class="tagline">A modern ritual of connection.</p>
+/* HERO */
+.hero{
+  text-align: center;
+  margin-top: -12px; /* pulls hero up */
+}
 
-      <div class="buttons">
-        <a class="pill primary" href="#" aria-label="Opening soon">Opening Soon</a>
-        <a class="pill" href="#" aria-label="Menu preview">Menu Preview</a>
-      </div>
-    </header>
+/* LOGO */
+.logo-wrap{
+  width: clamp(320px, 34vw, 520px);
+  margin: 0 auto 6px; /* this controls the gap under logo */
+}
 
-    <!-- FEATURE CARD -->
-    <section class="feature">
-      <div class="feature-inner">
+.logo{
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  image-rendering: -webkit-optimize-contrast;
+}
 
-        <div class="feature-image">
-          <img src="assets/apron.png" alt="All N One Kava Lounge apron mockup" />
-        </div>
+/* HERO TEXT */
+.subhead{
+  font-family: "Playfair Display", serif;
+  font-size: 1.65rem;  /* bigger */
+  margin-top: 0;
+  margin-bottom: 2px;  /* tight */
+}
 
-        <div class="feature-text">
-          <h2>A place to slow down.</h2>
-          <p>
-            We created All N One Kava Lounge to offer a space where connection comes first — a place to unwind,
-            share a shell, and be present for a moment.
-          </p>
+.tagline{
+  color: var(--muted);
+  font-size: 1.08rem;  /* bigger */
+  margin-top: 0;
+  margin-bottom: 12px; /* tight */
+}
 
-          <h3 class="closing">
-            Come as you are.<br/>
-            Stay as long as you’d like.
-          </h3>
-        </div>
+.buttons{
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 12px; /* tight */
+}
 
-      </div>
-    </section>
+/* PILLS */
+.pill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--pill);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .95rem;
+  transition: transform .08s ease, background .15s ease;
+}
 
-    <footer class="footer">
-      Come as you are. Stay as long as you like.
-    </footer>
+.pill:hover{ transform: translateY(-1px); }
 
-  </main>
-</body>
-</html>
+.pill.primary{
+  background: var(--accent);
+  color: #fff;
+  border-color: rgba(0,0,0,0);
+  box-shadow: 0 10px 22px rgba(139, 75, 47, .22);
+}
+
+/* FEATURE CARD */
+.feature{
+  margin-top: 6px;
+  background: rgba(255,255,255,.18);
+  border-radius: 22px;
+  padding: 20px;
+}
+
+.feature-inner{
+  background: var(--card);
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 34px;
+  align-items: center;
+}
+
+.feature-image{
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(0,0,0,.03);
+}
+
+.feature-image img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.feature-text h2{
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.feature-text p{
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.85;
+  margin-bottom: 12px;
+  max-width: 52ch;
+}
+
+.closing{
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.5rem, 2.2vw, 2.05rem);
+  line-height: 1.15;
+  margin-top: 6px;
+}
+
+/* FOOTER */
+.footer{
+  text-align: center;
+  margin-top: 18px;
+  color: rgba(43, 29, 20, 0.70);
+  font-family: "Playfair Display", serif;
+  font-size: 1.05rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px){
+  .feature-inner{
+    grid-template-columns: 1fr;
+    gap: 22px;
+    text-align: center;
+  }
+
+  .feature-text p{
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px){
+  .container{ padding: 34px 18px 30px; }
+  .logo-wrap{ width: min(420px, 78vw); margin-bottom: 6px; }
+  .subhead{ font-size: 1.5rem; }
+  .tagline{ font-size: 1.02rem; margin-bottom: 10px; }
+}
+
+@media (max-width: 480px){
+  .logo-wrap{ width: min(360px, 82vw); }
+  .subhead{ font-size: 1.35rem; }
+  .tagline{ font-size: 0.98rem; }
+}
