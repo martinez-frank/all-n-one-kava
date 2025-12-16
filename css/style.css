@@ -212,7 +212,12 @@ body{
 .feature-text{
   display: flex;
   flex-direction: column;
-  justify-content: center;   /* vertical balance vs image */
+  justify-content: flex-start;  /* let content breathe */
+  padding-top: 6px;             /* subtle lift */
+}
+
+.feature-text p{
+  margin-bottom: 18px;   /* more breathing room */
 }
 
 .feature-text h2{
