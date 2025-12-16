@@ -48,20 +48,15 @@ body{
 }
 
 /* HEADLINE + TAGLINE (NO OVERLAP) */
-.subhead{
-  font-family: "Playfair Display", serif;
-  font-size: 1.9rem;        /* ⬅️ slightly larger */
-  margin-top: 6px;
-  margin-bottom: 4px;
+.tagline{
+  font-size: 1.22rem;      /* up slightly */
+  font-weight: 500;
+  margin-bottom: 14px;
 }
 
-.tagline{
-  color: var(--muted);
-  font-size: 1.35rem;       /* ⬅️ noticeable but elegant */
-  font-weight: 500;         /* ⬅️ adds authority */
-  letter-spacing: 0.01em;
-  margin-top: 0;
-  margin-bottom: 16px;
+.subhead{
+  font-size: 1.85rem;      /* keep strong */
+  margin-bottom: 6px;
 }
 
 /* BUTTONS */
@@ -75,27 +70,17 @@ body{
 
 /* PILLS */
 .pill{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 18px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--pill);
-  color: var(--ink);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: .95rem;
-  transition: transform .08s ease, background .15s ease;
+  transition: transform .12s ease, background .18s ease, box-shadow .18s ease;
 }
 
-.pill:hover{ transform: translateY(-1px); }
+.pill:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.08);
+}
 
-.pill.primary{
-  background: var(--accent);
-  color: #fff;
-  border-color: rgba(0,0,0,0);
-  box-shadow: 0 10px 22px rgba(139, 75, 47, .22);
+.pill:focus-visible{
+  outline: 2px solid rgba(139, 75, 47, .35);
+  outline-offset: 3px;
 }
 
 /* =========================
