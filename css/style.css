@@ -8,46 +8,50 @@
   --accent: #8b4b2f;
   --shadow: 0 14px 45px rgba(0,0,0,.08);
 
-  /* Leaf pattern intensity (keep subtle) */
-  --pattern-opacity: 0.06;
+  /* leaf pattern visibility (adjust if needed) */
+  --pattern-opacity: 0.10; /* try 0.08–0.14 */
 }
 
 *{ box-sizing: border-box; margin: 0; padding: 0; }
 
 body{
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: var(--bg);
   color: var(--ink);
-  position: relative;
+
+  /* Base + subtle leaf pattern */
+  background-color: var(--bg);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg fill='none' stroke='%232b1d14' stroke-width='2'%3E%3Cpath d='M160 64c-22 7-36 21-43 43 22-7 36-21 43-43Z'/%3E%3Cpath d='M120 104c12 12 25 22 38 30' stroke-linecap='round'/%3E%3Cpath d='M80 176c22-7 36-21 43-43-22 7-36 21-43 43Z'/%3E%3Cpath d='M120 136c-12-12-25-22-38-30' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 240px 240px;
+  background-repeat: repeat;
+  background-attachment: fixed;
+
+  /* soften pattern so it’s premium, not busy */
+  background-blend-mode: multiply;
+  opacity: 1;
 }
 
-/* Subtle leaf pattern overlay (premium + minimal) */
+/* Pattern opacity control without masking */
 body::before{
-  content: "";
+  content:"";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-
-  opacity: var(--pattern-opacity);
-
-  /* Simple leaf motif as inline SVG pattern (repeats softly) */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%232b1d14' stroke-opacity='1'%3E%3Cpath d='M150 60c-18 6-30 18-36 36 18-6 30-18 36-36Z' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M116 94c10 10 20 18 30 24' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M72 140c18-6 30-18 36-36-18 6-30 18-36 36Z' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M106 106c-10-10-20-18-30-24' stroke-width='2' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 220px 220px;
-  background-repeat: repeat;
-
-  /* Soft fade so it doesn’t distract */
-  mask-image: radial-gradient(circle at 50% 35%, rgba(0,0,0,.95), rgba(0,0,0,.35) 55%, rgba(0,0,0,0) 85%);
-  -webkit-mask-image: radial-gradient(circle at 50% 35%, rgba(0,0,0,.95), rgba(0,0,0,.35) 55%, rgba(0,0,0,0) 85%);
+  background: var(--bg);
+  opacity: 1;
 }
 
-/* Ensure content sits above the pattern overlay */
 .container{
   position: relative;
   z-index: 1;
   max-width: 1120px;
   margin: 0 auto;
   padding: 28px 24px 34px;
+
+  /* This overlay dims the pattern slightly while keeping it visible */
+  background: rgba(246,239,229, calc(1 - var(--pattern-opacity)));
+  border-radius: 18px;
 }
 
 /* =========================
@@ -61,7 +65,6 @@ body::before{
   align-items: center;
 }
 
-/* LOGO */
 .logo-wrap{
   width: clamp(420px, 44vw, 640px);
   margin: 0 auto 10px;
@@ -73,7 +76,6 @@ body::before{
   display: block;
 }
 
-/* HEADLINE */
 .subhead{
   font-family: "Playfair Display", serif;
   font-size: clamp(1.55rem, 2.1vw, 1.95rem);
@@ -81,7 +83,6 @@ body::before{
   margin-bottom: 6px;
 }
 
-/* TAGLINE */
 .tagline{
   color: var(--muted);
   font-size: 1.18rem;
@@ -89,7 +90,6 @@ body::before{
   margin-bottom: 16px;
 }
 
-/* BUTTONS */
 .buttons{
   display: flex;
   gap: 12px;
@@ -99,7 +99,7 @@ body::before{
 }
 
 /* =========================
-   PILLS / BUTTONS
+   PILLS
 ========================= */
 
 .pill{
@@ -131,7 +131,7 @@ body::before{
   background: rgba(43, 29, 20, 0.07);
 }
 
-/* Opening Soon: larger + premium shine every ~5 seconds */
+/* Opening Soon: larger + shine */
 .pill.primary{
   position: relative;
   overflow: hidden;
@@ -151,40 +151,32 @@ body::before{
   transform: translateZ(0);
 }
 
-.pill.primary:hover{
-  background: #7a4028;
-}
+.pill.primary:hover{ background: #7a4028; }
 
-/* Opening Soon shine — runs once every ~5 seconds */
 .pill.primary::after{
   content: "";
   position: absolute;
   top: -45%;
   left: -45%;
-
   width: 34%;
   height: 190%;
-
   transform: rotate(18deg);
-
   background: linear-gradient(
     90deg,
     rgba(255,255,255,0) 0%,
     rgba(255,255,255,.55) 50%,
     rgba(255,255,255,0) 100%
   );
-
   opacity: 0;
   pointer-events: none;
-
   animation: pillShine 5s ease-in-out infinite;
 }
 
 @keyframes pillShine{
-  0%   { left: -45%; opacity: 0; }
-  8%   { opacity: .55; }
-  18%  { left: 120%; opacity: 0; }
-  100% { left: 120%; opacity: 0; }
+  0%{ left: -45%; opacity: 0; }
+  8%{ opacity: .55; }
+  18%{ left: 120%; opacity: 0; }
+  100%{ left: 120%; opacity: 0; }
 }
 
 /* =========================
@@ -208,13 +200,17 @@ body::before{
   grid-template-columns: 420px 1fr;
   gap: 34px;
 
-  align-items: center; /* keeps overall card balanced */
+  /* KEY FIX: stretch the grid items so the right column has real height */
+  align-items: stretch;
 }
 
 .feature-image{
   border-radius: 18px;
   overflow: hidden;
   background: rgba(0,0,0,.03);
+
+  display: flex;
+  align-items: center;
 }
 
 .feature-image img{
@@ -223,15 +219,15 @@ body::before{
   display: block;
 }
 
-/* Right column: center the group, but give breathing room */
+/* KEY FIX: true vertical centering inside full-height column */
 .feature-text{
   display: flex;
   flex-direction: column;
-  justify-content: center;  /* stops “top cramped” */
-  padding: 22px 0;          /* adds air inside column */
+  justify-content: center;   /* centers the whole text group vertically */
+  height: 100%;
+  padding: 10px 0;           /* keeps it from feeling stuck to top/bottom */
 }
 
-/* Restore H2 style reliably (no dependency on wrapper) */
 .feature-text h2{
   font-family: "Playfair Display", serif;
   font-size: clamp(2rem, 3vw, 2.55rem);
@@ -247,7 +243,6 @@ body::before{
   max-width: 52ch;
 }
 
-/* The big “Come as you are…” */
 .closing{
   font-family: "Playfair Display", serif;
   font-size: clamp(1.75rem, 2.35vw, 2.25rem);
@@ -255,11 +250,11 @@ body::before{
   margin-top: 6px;
 }
 
-/* Menu Preview: lower, but not glued to bottom */
+/* Menu Preview lower (but not glued to bottom) */
 .feature-actions{
   display: flex;
   justify-content: center;
-  margin-top: 22px;
+  margin-top: 26px;
 }
 
 /* FOOTER */
@@ -280,20 +275,16 @@ body::before{
     grid-template-columns: 1fr;
     gap: 22px;
     text-align: center;
-    align-items: start;
   }
 
   .feature-text{
+    height: auto;
     padding: 0;
   }
 
   .feature-text p{
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .feature-actions{
-    margin-top: 18px;
   }
 }
 
@@ -305,24 +296,14 @@ body::before{
     margin-bottom: 10px;
   }
 
-  .subhead{
-    font-size: 1.45rem;
-    margin-bottom: 6px;
-  }
-
-  .tagline{
-    font-size: 1.05rem;
-    margin-bottom: 14px;
-  }
-
+  .subhead{ font-size: 1.45rem; margin-bottom: 6px; }
+  .tagline{ font-size: 1.05rem; margin-bottom: 14px; }
   .buttons{ margin-bottom: 14px; }
 
   .feature{ padding: 16px; }
   .feature-inner{ padding: 20px; }
 
-  .feature-text h2{
-    font-size: 2.1rem;
-  }
+  .feature-text h2{ font-size: 2.1rem; }
 
   .feature-text p{
     font-size: 1.02rem;
@@ -340,28 +321,16 @@ body::before{
 }
 
 @media (max-width: 480px){
-  .logo-wrap{
-    width: min(420px, 88vw);
-  }
+  .logo-wrap{ width: min(420px, 88vw); }
 
   .subhead{ font-size: 1.35rem; }
   .tagline{ font-size: 1rem; }
 
-  .pill{
-    padding: 10px 18px;
-    font-size: 0.93rem;
-  }
-
-  .pill.primary{
-    padding: 13px 24px;
-    font-size: 1.02rem;
-  }
+  .pill{ padding: 10px 18px; font-size: 0.93rem; }
+  .pill.primary{ padding: 13px 24px; font-size: 1.02rem; }
 
   .feature-inner{ padding: 18px; }
-
   .feature-text h2{ font-size: 1.95rem; }
 
-  .closing{
-    font-size: 1.85rem;
-  }
+  .closing{ font-size: 1.85rem; }
 }
