@@ -114,8 +114,8 @@ body{
   color: #fff;
   border: none;
 
-  padding: 15px 28px;          /* larger pill */
-  font-size: 1.08rem;          /* clearer emphasis */
+  padding: 15px 28px;          /* slightly larger */
+  font-size: 1.08rem;
   letter-spacing: 0.03em;
 
   box-shadow:
@@ -124,7 +124,6 @@ body{
 
   transform: translateZ(0);
 }
-
 
 .pill.primary:hover{
   background: #7a4028;
@@ -193,7 +192,8 @@ body{
   display: grid;
   grid-template-columns: 420px 1fr;
   gap: 34px;
-  align-items: center;
+
+  align-items: start; /* KEY FIX: stop vertical centering squeeze */
 }
 
 .feature-image{
@@ -208,16 +208,9 @@ body{
   display: block;
 }
 
-/* Menu Preview pill inside the feature text (centered above H2) */
+/* Text column breathing room */
 .feature-text{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;  /* let content breathe */
-  padding-top: 6px;             /* subtle lift */
-}
-
-.feature-text p{
-  margin-bottom: 18px;   /* more breathing room */
+  padding-top: 18px;
 }
 
 .feature-text h2{
@@ -231,7 +224,7 @@ body{
   color: var(--muted);
   font-size: 1.02rem;
   line-height: 1.85;
-  margin-bottom: 12px;
+  margin-bottom: 18px;  /* more breathing room */
   max-width: 52ch;
 }
 
@@ -240,7 +233,14 @@ body{
   font-family: "Playfair Display", serif;
   font-size: clamp(1.75rem, 2.35vw, 2.25rem);
   line-height: 1.15;
-  margin-top: 12px;
+  margin-top: 10px;
+}
+
+/* Menu Preview positioned lower and calmer */
+.feature-actions{
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
 }
 
 /* FOOTER */
@@ -261,6 +261,10 @@ body{
     grid-template-columns: 1fr;
     gap: 22px;
     text-align: center;
+  }
+
+  .feature-text{
+    padding-top: 0;
   }
 
   .feature-text p{
@@ -309,6 +313,10 @@ body{
     margin-top: 14px;
   }
 
+  .feature-actions{
+    margin-top: 22px;
+  }
+
   .footer{ font-size: 1.05rem; }
 }
 
@@ -325,10 +333,9 @@ body{
     font-size: 0.93rem;
   }
 
-  /* Mobile safety for the larger Opening Soon pill */
   .pill.primary{
-    padding: 12px 22px;
-    font-size: 0.98rem;
+    padding: 13px 24px;
+    font-size: 1.02rem;
   }
 
   .feature-inner{ padding: 18px; }
@@ -337,5 +344,9 @@ body{
 
   .closing{
     font-size: 1.85rem;  /* prevents the “giant” look */
+  }
+
+  .feature-actions{
+    margin-top: 20px;
   }
 }
