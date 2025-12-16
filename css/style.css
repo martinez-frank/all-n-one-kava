@@ -37,11 +37,12 @@ body{
   overflow: hidden;
 }
 
-.logo {
-  width: clamp(180px, 20vw, 260px);
+.logo{
+  width: 88%;              /* ⬅️ was 100%, this makes logo visually bigger */
+  max-width: 460px;        /* ⬅️ caps it so it doesn’t get ridiculous */
   height: auto;
   display: block;
-  margin: 0 auto 8px; /* tighter */
+  margin: 0 auto;
   image-rendering: -webkit-optimize-contrast;
 }
 
