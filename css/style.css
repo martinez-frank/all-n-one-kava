@@ -105,15 +105,70 @@ body{
   background: rgba(43, 29, 20, 0.07);
 }
 
+/* Opening Soon: larger + premium shine every ~5 seconds */
 .pill.primary{
+  position: relative;
+  overflow: hidden; /* required for shine */
+
   background: var(--accent);
   color: #fff;
   border: none;
-  box-shadow: 0 10px 22px rgba(139, 75, 47, 0.22), inset 0 1px 0 rgba(255,255,255,0.25);
+
+  padding: 13px 24px;
+  font-size: 1.02rem;
+
+  box-shadow:
+    0 12px 26px rgba(139, 75, 47, 0.28),
+    inset 0 1px 0 rgba(255,255,255,0.28);
+
+  transform: translateZ(0);
 }
 
 .pill.primary:hover{
   background: #7a4028;
+}
+
+/* Opening Soon shine — runs once every ~5 seconds */
+.pill.primary::after{
+  content: "";
+  position: absolute;
+  top: -45%;
+  left: -45%;
+
+  width: 34%;
+  height: 190%;
+
+  transform: rotate(18deg);
+
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,.55) 50%,
+    rgba(255,255,255,0) 100%
+  );
+
+  opacity: 0;
+  pointer-events: none;
+
+  animation: pillShine 5s ease-in-out infinite;
+}
+
+@keyframes pillShine{
+  0%{
+    left: -45%;
+    opacity: 0;
+  }
+  8%{
+    opacity: .55;
+  }
+  18%{
+    left: 120%;
+    opacity: 0;
+  }
+  100%{
+    left: 120%;
+    opacity: 0;
+  }
 }
 
 /* =========================
@@ -149,6 +204,13 @@ body{
   width: 100%;
   height: auto;
   display: block;
+}
+
+/* Menu Preview pill inside the feature text (centered above H2) */
+.feature-actions{
+  display: flex;
+  justify-content: center;
+  margin: 0 0 14px;
 }
 
 .feature-text h2{
@@ -254,6 +316,12 @@ body{
   .pill{
     padding: 10px 18px;
     font-size: 0.93rem;
+  }
+
+  /* Mobile safety for the larger Opening Soon pill */
+  .pill.primary{
+    padding: 12px 22px;
+    font-size: 0.98rem;
   }
 
   .feature-inner{ padding: 18px; }
