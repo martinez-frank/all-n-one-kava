@@ -20,50 +20,50 @@ body{
 .container{
   max-width: 1120px;
   margin: 0 auto;
-  padding: 44px 24px 34px; /* tighter top/bottom */
+  padding: 34px 24px 30px; /* tighter overall */
 }
 
 /* HERO */
 .hero{
   text-align: center;
-  padding-top: 0;
-  margin-top: -10px; /* pulls logo + text upward as a unit */
+  margin-top: -12px; /* pulls the hero upward */
 }
 
-/* LOGO: wrapper controls hero-visual scale */
+/* BIGGER LOGO + tighter gap below it */
 .logo-wrap{
-  width: clamp(360px, 38vw, 620px); /* ⬅️ larger hero presence */
-  margin: 0 auto 4px;               /* ⬅️ even tighter to tagline */
+  width: clamp(460px, 52vw, 780px); /* bigger hero presence */
+  margin: 0 auto 6px;               /* tighter gap to subhead */
 }
 
 .logo{
-  width: 88%;              /* ⬅️ was 100%, this makes logo visually bigger */
-  max-width: 460px;        /* ⬅️ caps it so it doesn’t get ridiculous */
+  width: 100%;
+  max-width: 620px;                 /* keeps it bold, not insane */
   height: auto;
   display: block;
   margin: 0 auto;
   image-rendering: -webkit-optimize-contrast;
 }
 
+/* HERO TEXT */
 .subhead{
   font-family: "Playfair Display", serif;
-  font-size: 1.55rem;      /* larger, more intentional */
+  font-size: 1.65rem;   /* slightly larger */
   margin-top: 0;
-  margin-bottom: 2px;      /* almost touching tagline */
+  margin-bottom: 2px;   /* almost touching tagline */
 }
 
 .tagline{
   color: var(--muted);
-  font-size: 1.05rem;
-  margin-top: 0;
-  margin-bottom: 16px;     /* controlled space before buttons */
+  font-size: 1.08rem;
+  margin-bottom: 12px;  /* tighter before buttons */
 }
+
 .buttons{
   display: flex;
   gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 14px; /* tighter */
+  margin-bottom: 12px;  /* tighter before card */
 }
 
 /* PILLS / BUTTONS */
@@ -93,19 +93,20 @@ body{
 
 /* FEATURE CARD */
 .feature{
-  margin-top: 6px; /* closer to hero */
+  margin-top: 6px;
   background: rgba(255,255,255,.18);
   border-radius: 22px;
-  padding: 20px; /* tighter */
+  padding: 18px;
 }
+
 .feature-inner{
   background: var(--card);
   border-radius: 22px;
-  padding: 28px; /* tighter */
+  padding: 28px;
   box-shadow: var(--shadow);
   display: grid;
   grid-template-columns: 420px 1fr;
-  gap: 34px; /* tighter */
+  gap: 34px;
   align-items: center;
 }
 
@@ -125,7 +126,7 @@ body{
   font-family: "Playfair Display", serif;
   font-size: clamp(2rem, 3vw, 2.6rem);
   line-height: 1.1;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .feature-text p{
@@ -140,21 +141,23 @@ body{
   font-family: "Playfair Display", serif;
   font-size: clamp(1.6rem, 2.2vw, 2.1rem);
   line-height: 1.15;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 /* FOOTER */
 .footer{
   text-align: center;
-  margin-top: 22px;
-  ...
+  margin-top: 18px;
+  color: rgba(43, 29, 20, 0.70);
+  font-family: "Playfair Display", serif;
+  font-size: 1.05rem;
 }
 
 /* RESPONSIVE */
 @media (max-width: 900px){
   .feature-inner{
     grid-template-columns: 1fr;
-    gap: 26px;
+    gap: 22px;
     text-align: center;
   }
 
@@ -165,14 +168,17 @@ body{
 }
 
 @media (max-width: 768px){
-  .container{ padding: 44px 18px 40px; }
-  .logo-wrap{ width: min(420px, 78vw); margin-bottom: 10px; }
+  .container{ padding: 28px 18px 28px; }
+  .logo-wrap{ width: min(640px, 86vw); margin-bottom: 6px; }
+  .logo{ max-width: 560px; }
   .subhead{ font-size: 1.5rem; }
-  .tagline{ font-size: 1.05rem; margin-bottom: 12px; }
+  .tagline{ font-size: 1.02rem; margin-bottom: 10px; }
+  .buttons{ margin-bottom: 10px; }
 }
 
 @media (max-width: 480px){
-  .logo-wrap{ width: min(360px, 82vw); }
+  .logo-wrap{ width: min(520px, 92vw); }
+  .logo{ max-width: 460px; }
   .subhead{ font-size: 1.35rem; }
-  .tagline{ font-size: 1rem; }
+  .tagline{ font-size: .98rem; }
 }
