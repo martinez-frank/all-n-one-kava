@@ -23,35 +23,38 @@ body{
   padding: 30px 24px 30px;
 }
 
-/* =========================
-   HERO (LOCKED STACK)
-========================= */
-
+/* HERO stack spacing polish */
 .hero{
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap: 0;                 /* important: no mystery gaps */
 }
 
 /* LOGO */
 .logo-wrap{
-  width: clamp(480px, 50vw, 680px);
-  margin: 0 auto 6px;
+  width: clamp(460px, 48vw, 660px);  /* slightly smaller than current */
+  margin: 0 auto 2px;                 /* tighter under logo */
+  line-height: 0;                     /* kills inline-image baseline gap */
 }
-
 .logo{
-  width: 100%;
-  height: auto;
-  display: block;
+  display:block;
+  width:100%;
+  height:auto;
 }
 
-/* HEADLINE + TAGLINE (NO OVERLAP) */
+/* HEADLINE + TAGLINE */
+.subhead{
+  font-family:"Playfair Display", serif;
+  font-size: 1.9rem;
+  margin: 4px 0 4px;      /* tighter */
+}
 .tagline{
-  color: rgba(43, 29, 20, 0.68);
-  font-size: 1.26rem;
+  color: rgba(43,29,20,.68);
+  font-size: 1.18rem;     /* bigger but controlled */
   line-height: 1.45;
-  margin-bottom: 16px;
+  margin: 0 0 14px;       /* space before pills */
 }
 
 .subhead{
