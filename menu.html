@@ -1,1 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>All N One Kava Lounge — Menu Preview</title>
 
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/style.css" />
+  <style>
+    /* Page-specific menu styling (kept minimal + matches your aesthetic) */
+    .menu-wrap{
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .menu-card{
+      margin-top: 10px;
+      background: rgba(255,255,255,.14);
+      border-radius: 22px;
+      padding: 22px;
+    }
+
+    .menu-inner{
+      background: var(--card);
+      border-radius: 22px;
+      padding: clamp(22px, 3vw, 42px);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(43,29,20,0.10);
+      text-align: center;
+    }
+
+    .menu-kicker{
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.85rem;
+      color: rgba(43,29,20,0.62);
+      margin-bottom: 14px;
+    }
+
+    .menu-title{
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.1rem, 4vw, 3.1rem);
+      line-height: 1.05;
+      margin: 0 0 14px;
+    }
+
+    .menu-sub{
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin: 0 auto 26px;
+      max-width: 60ch;
+    }
+
+    .menu-grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin: 0 auto;
+      max-width: 720px;
+      text-align: left;
+    }
+
+    .menu-item{
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px 16px;
+      align-items: baseline;
+      padding: 14px 14px;
+      border-radius: 16px;
+      background: rgba(43,29,20,0.03);
+      border: 1px solid rgba(43,29,20,0.08);
+    }
+
+    .menu-name{
+      font-family: "Playfair Display", serif;
+      font-size: 1.45rem;
+      line-height: 1.1;
+      margin: 0;
+    }
+
+    .menu-notes{
+      grid-column: 1 / -1;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.65;
+      margin: 2px 0 0;
+    }
+
+    .menu-footer{
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(43,29,20,0.10);
+      color: rgba(43,29,20,0.70);
+      font-family: "Playfair Display", serif;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px){
+      .menu-item{
+        padding: 14px 12px;
+      }
+      .menu-name{
+        font-size: 1.3rem;
+      }
+      .menu-notes{
+        font-size: 0.98rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container menu-wrap">
+
+    <header class="hero">
+      <div class="logo-wrap">
+        <img class="logo" src="./assets/all_in_one_logo.png" alt="All N One Kava Lounge logo">
+      </div>
+
+      <div class="buttons">
+        <a class="pill" href="./index.html">← Back</a>
+        <span class="pill primary" style="pointer-events:none;">Menu Preview</span>
+      </div>
+    </header>
+
+    <section class="menu-card">
+      <div class="menu-inner">
+        <div class="menu-kicker">Monthly Signature Drinks</div>
+        <h1 class="menu-title">Seasonal Menu</h1>
+        <p class="menu-sub">
+          Crafted with intention. Choose your base and savor the ritual.
+        </p>
+
+        <div class="menu-grid">
+
+          <div class="menu-item">
+            <h2 class="menu-name">Berry Cobbler</h2>
+            <p class="menu-notes">spiced brown sugar • blueberry • choice of milk, espresso or matcha</p>
+          </div>
+
+          <div class="menu-item">
+            <h2 class="menu-name">Cherry Vanilla</h2>
+            <p class="menu-notes">cherry • vanilla syrup • choice of milk, espresso or matcha</p>
+          </div>
+
+          <div class="menu-item">
+            <h2 class="menu-name">Dubai Chocolate</h2>
+            <p class="menu-notes">pistachio • chocolate • choice of milk, espresso or matcha</p>
+          </div>
+
+          <div class="menu-item">
+            <h2 class="menu-name">Turkish Delight</h2>
+            <p class="menu-notes">rose • vanilla • choice of milk, espresso or matcha</p>
+          </div>
+
+          <div class="menu-item">
+            <h2 class="menu-name">Date Cardamom</h2>
+            <p class="menu-notes">date • cardamom • choice of milk, espresso or matcha</p>
+          </div>
+
+          <div class="menu-item">
+            <h2 class="menu-name">Merry Mint</h2>
+            <p class="menu-notes">peppermint • vanilla • choice of milk, espresso or matcha</p>
+          </div>
+
+        </div>
+
+        <div class="menu-footer">
+          <div style="font-variant-numeric: lining-nums;">
+            All specials are 16 oz iced.<br>
+            Please mix well before drinking.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Come as you are. Stay as long as you like.
+    </footer>
+
+  </div>
+</body>
+</html>
