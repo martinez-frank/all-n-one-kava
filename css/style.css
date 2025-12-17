@@ -27,15 +27,16 @@ body{
 }
 
 a{ color: inherit; }
-
 p{ letter-spacing: .01em; }
+
+/* =========================
+   LAYOUT
+========================= */
 
 .container{
   max-width: 1120px;
   margin: 0 auto;
-
-  /* More top breathing room so it doesn’t feel smashed */
-  padding: clamp(34px, 5vh, 64px) 24px 40px;
+  padding: clamp(34px, 5vh, 64px) 24px 44px;
 }
 
 /* Accessible focus (keeps your aesthetic) */
@@ -54,8 +55,6 @@ p{ letter-spacing: .01em; }
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  /* Separate hero from top edge a bit more */
   padding-top: clamp(8px, 1.6vh, 18px);
 }
 
@@ -70,7 +69,6 @@ p{ letter-spacing: .01em; }
   display: block;
 }
 
-/* HEADLINE */
 .subhead{
   font-family: "Playfair Display", serif;
   font-size: clamp(1.55rem, 2.1vw, 1.95rem);
@@ -78,7 +76,6 @@ p{ letter-spacing: .01em; }
   margin-bottom: 6px;
 }
 
-/* TAGLINE */
 .tagline{
   color: var(--muted);
   font-size: 1.18rem;
@@ -86,13 +83,12 @@ p{ letter-spacing: .01em; }
   margin-bottom: 18px;
 }
 
-/* BUTTONS */
 .buttons{
   display: flex;
   gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 26px; /* more separation from the card */
+  margin-bottom: 26px;
 }
 
 /* =========================
@@ -158,9 +154,7 @@ p{ letter-spacing: .01em; }
   transform: translateZ(0);
 }
 
-.pill.primary:hover{
-  background: #7a4028;
-}
+.pill.primary:hover{ background: #7a4028; }
 
 .pill.primary::after{
   content: "";
@@ -206,10 +200,11 @@ p{ letter-spacing: .01em; }
   box-shadow: var(--shadow);
 
   display: grid;
-  grid-template-columns: 420px 1fr;
-  gap: 38px;
 
-  /* Keep it feeling centered without squeezing content */
+  /* KEY FIX: give text more room + reduce “empty feel” */
+  grid-template-columns: 400px 1fr;
+  gap: 32px;
+
   align-items: center;
 }
 
@@ -233,10 +228,12 @@ p{ letter-spacing: .01em; }
   flex-direction: column;
   justify-content: flex-start;
 
-  padding: 10px 0;
-  gap: 16px;
+  /* slightly tighter vertical rhythm so it doesn’t feel “floating” */
+  padding: 6px 0;
+  gap: 14px;
 
-  min-height: 360px; /* gives the column room to breathe on desktop */
+  /* reduced from 360 so desktop doesn’t create too much “air” */
+  min-height: 320px;
 }
 
 .feature-text h2{
@@ -251,20 +248,22 @@ p{ letter-spacing: .01em; }
   font-size: 1.02rem;
   line-height: 1.9;
   margin: 0;
-  max-width: 60ch;
+
+  /* KEY FIX: wider measure = less “tight middle” */
+  max-width: 68ch;
 }
 
 .closing{
   font-family: "Playfair Display", serif;
   font-size: clamp(1.75rem, 2.35vw, 2.25rem);
   line-height: 1.15;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 /* Button goes lower naturally */
 .feature-actions{
   margin-top: auto;
-  padding-top: 14px;
+  padding-top: 12px;
   display: flex;
   justify-content: center;
 }
@@ -276,22 +275,24 @@ p{ letter-spacing: .01em; }
 .footer{
   text-align: center;
   margin-top: 18px;
+  padding-bottom: 26px;
+
   color: rgba(43, 29, 20, 0.70);
   font-family: "Playfair Display", serif;
   font-size: 1.1rem;
-  padding-bottom: 24px;
 }
 
-/* Contact block (under the footer line) */
+/* Contact block */
 .contact{
   margin-top: 10px;
   display: grid;
   gap: 6px;
   justify-items: center;
 
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-size: 1.02rem; /* slightly larger */
-  color: rgba(43, 29, 20, 0.78);
+  /* restore a “matched” premium look */
+  font-family: "Playfair Display", serif;
+  font-size: 1.08rem;
+  color: rgba(43, 29, 20, 0.74);
 }
 
 .contact .addr{
@@ -305,22 +306,22 @@ p{ letter-spacing: .01em; }
   font-weight: 600;
 }
 
-.contact .phone a{
+/* KEY FIX: lock phone link to accent (no blue/purple visited) */
+.contact .phone a,
+.contact .phone a:visited{
   color: var(--accent);
   text-decoration: none;
   border-bottom: 1px solid rgba(139,75,47,.35);
 }
 
 .contact .phone a:hover{
-  border-bottom-color: rgba(139,75,47,.65);
+  border-bottom-color: rgba(139,75,47,.70);
 }
 
 /* =========================
-   MENU PAGE (NEW)
-   Works if you make menu.html (or /menu/index.html)
+   MENU PAGE (menu.html)
 ========================= */
 
-/* Optional: a simple top bar row for Back + Menu Preview */
 .topbar{
   display: flex;
   justify-content: center;
@@ -329,7 +330,6 @@ p{ letter-spacing: .01em; }
   margin-bottom: 18px;
 }
 
-/* Menu wrapper card */
 .menu-shell{
   margin-top: 12px;
   background: rgba(255,255,255,.14);
@@ -376,7 +376,6 @@ p{ letter-spacing: .01em; }
   margin-top: 18px;
 }
 
-/* Individual menu items */
 .menu-item{
   background: rgba(255,255,255,.45);
   border: 1px solid rgba(43,29,20,.10);
@@ -385,9 +384,7 @@ p{ letter-spacing: .01em; }
   box-shadow: 0 10px 22px rgba(0,0,0,.05);
 }
 
-.menu-item + .menu-item{
-  margin-top: 14px;
-}
+.menu-item + .menu-item{ margin-top: 14px; }
 
 .menu-item h3{
   font-family: "Playfair Display", serif;
@@ -402,7 +399,6 @@ p{ letter-spacing: .01em; }
   line-height: 1.75;
 }
 
-/* Menu footer note */
 .menu-note{
   text-align: center;
   margin-top: 18px;
@@ -414,7 +410,7 @@ p{ letter-spacing: .01em; }
   line-height: 1.5;
 }
 
-/* Gentle reveal (optional premium touch) */
+/* Gentle reveal */
 @keyframes softReveal{
   from{ opacity: 0; transform: translateY(6px); }
   to{ opacity: 1; transform: translateY(0); }
@@ -449,63 +445,35 @@ p{ letter-spacing: .01em; }
 }
 
 @media (max-width: 768px){
-  .container{
-    padding: 22px 16px 26px;
-  }
+  .container{ padding: 22px 16px 28px; }
 
   .logo-wrap{
     width: min(480px, 86vw);
     margin-bottom: 10px;
   }
 
-  .subhead{
-    font-size: 1.45rem;
-    margin-bottom: 6px;
-  }
+  .subhead{ font-size: 1.45rem; margin-bottom: 6px; }
+  .tagline{ font-size: 1.05rem; margin-bottom: 14px; }
+  .buttons{ margin-bottom: 18px; }
 
-  .tagline{
-    font-size: 1.05rem;
-    margin-bottom: 14px;
-  }
+  .feature{ padding: 14px; }
+  .feature-inner{ padding: 20px; }
 
-  .buttons{
-    margin-bottom: 18px;
-  }
-
-  .feature{
-    padding: 14px;
-  }
-
-  .feature-inner{
-    padding: 20px;
-  }
-
-  .feature-text h2{
-    font-size: 2.1rem;
-  }
+  .feature-text h2{ font-size: 2.1rem; }
 
   .feature-text p{
     font-size: 1.02rem;
     line-height: 1.85;
-    max-width: 52ch;
+    max-width: 56ch;
   }
 
-  .closing{
-    font-size: 2.05rem;
-    line-height: 1.12;
-    margin-top: 10px;
-  }
+  .closing{ font-size: 2.05rem; line-height: 1.12; margin-top: 10px; }
+  .feature-actions{ padding-top: 10px; }
 
-  .feature-actions{
-    padding-top: 10px;
-  }
-
-  .footer{
-    font-size: 1.05rem;
-  }
+  .footer{ font-size: 1.05rem; }
 
   .contact{
-    font-size: 1.0rem;
+    font-size: 1.04rem;
     gap: 5px;
   }
 
@@ -514,49 +482,31 @@ p{ letter-spacing: .01em; }
 }
 
 @media (max-width: 480px){
-  .logo-wrap{
-    width: min(420px, 88vw);
-  }
+  .logo-wrap{ width: min(420px, 88vw); }
 
   .subhead{ font-size: 1.35rem; }
   .tagline{ font-size: 1rem; }
 
-  .pill{
-    padding: 10px 18px;
-    font-size: 0.93rem;
-  }
+  .pill{ padding: 10px 18px; font-size: 0.93rem; }
 
   .pill.primary{
     padding: 13px 24px;
     font-size: 1.02rem;
   }
 
-  .feature-inner{
-    padding: 18px;
-  }
+  .feature-inner{ padding: 18px; }
 
-  .feature-text h2{
-    font-size: 1.95rem;
-  }
+  .feature-text h2{ font-size: 1.95rem; }
+  .closing{ font-size: 1.85rem; }
 
-  .closing{
-    font-size: 1.85rem;
-  }
+  .feature-actions{ padding-top: 8px; }
 
-  .feature-actions{
-    padding-top: 8px;
-  }
-
-  .contact{
-    font-size: 1.0rem;
-  }
+  .contact{ font-size: 1.02rem; }
 
   .menu-item{
     padding: 14px 14px;
     border-radius: 14px;
   }
 
-  .menu-item h3{
-    font-size: 1.2rem;
-  }
+  .menu-item h3{ font-size: 1.2rem; }
 }
