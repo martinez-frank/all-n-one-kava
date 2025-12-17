@@ -370,3 +370,46 @@ body{
     padding-top: 8px;
   }
 }
+/* =========================
+   CONTACT (Address + Phone)
+========================= */
+
+.contact{
+  margin-top: 12px;
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  text-align: center;
+
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+.contact-line{
+  display: inline-flex;
+  gap: 10px;
+  align-items: baseline;
+  justify-content: center;
+}
+
+/* Phone link matches Opening Soon pill color */
+.contact-link{
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(139, 75, 47, 0.35);
+  padding-bottom: 2px;
+}
+
+.contact-link:hover{
+  border-bottom-color: rgba(139, 75, 47, 0.65);
+}
+
+/* Mobile: tighten spacing a touch */
+@media (max-width: 768px){
+  .contact{
+    margin-top: 10px;
+    font-size: 1.02rem;
+  }
+}
